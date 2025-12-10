@@ -10,7 +10,7 @@ export function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary py-20 lg:py-32"
+      className="relative overflow-hidden bg-gradient-to-br from-[#852C2C] via-[#5B2D2D] to-[#B11D1D] py-20 lg:py-32"
     >
       <div className="absolute inset-0 bg-grid-white/10" />
       <div className="container relative px-6 lg:px-12">
@@ -39,7 +39,7 @@ export function HeroSection() {
               <Link href="/propuesta">
                 <Button
                   size="lg"
-                  className="gap-2 bg-[rgba(0,0,0,0.28)] text-white hover:bg-[rgba(0,0,0,0.38)] border border-white/15 backdrop-blur"
+                  className="gap-2 bg-gradient-to-br from-[#B11D1D] to-[#852C2C] text-white hover:from-[#C42B2B] hover:to-[#A03030] border border-white/25 backdrop-blur font-semibold"
                 >
                   <FileText className="h-4 w-4" />
                   Propuesta de proyectos

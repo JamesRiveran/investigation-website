@@ -7,10 +7,9 @@ export interface Canton {
     descripcion: string | null
     area: string | null
     escudo_url: string | null
+    reporte_url: string | null
     created_at: string
-}
-
-export interface OpcionTuristica {
+}export interface OpcionTuristica {
     id: string
     canton_id: string
     nombre: string

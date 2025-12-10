@@ -11,6 +11,7 @@ CREATE TABLE cantones (
   descripcion TEXT,
   area VARCHAR(20),
   escudo_url TEXT,
+  reporte_url TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 

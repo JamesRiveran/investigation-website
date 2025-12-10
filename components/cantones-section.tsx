@@ -2,16 +2,28 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin } from "lucide-react"
+import { MapPin, FileText, X, Plus, Minus, RefreshCw } from "lucide-react"
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { useEffect, useState, type WheelEvent } from "react"
 import { createClient } from "@/lib/supabase/client"
 import { Canton } from "@/types/database.types"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export function CantonesSection() {
   const [cantones, setCantones] = useState<Canton[]>([])
   const [loading, setLoading] = useState(true)
+  const [selectedReporte, setSelectedReporte] = useState<{ url: string; nombre: string } | null>(null)
+  const [zoom, setZoom] = useState(1)
+
+  const clampZoom = (value: number) => Math.min(3, Math.max(0.5, value))
+  const handleZoom = (delta: number) => setZoom((z) => clampZoom(z + delta))
+  const resetZoom = () => setZoom(1)
+  const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    const direction = event.deltaY < 0 ? 0.1 : -0.1
+    handleZoom(direction)
+  }
 
   useEffect(() => {
     const fetchCantones = async () => {
@@ -118,6 +130,22 @@ export function CantonesSection() {
                         {canton.descripcion}
                       </p>
                     )}
+                    {canton.reporte_url && (
+                      <div className="pt-3 border-t">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full text-[#852C2C] border-[#852C2C]/20 hover:bg-[#852C2C]/10 hover:text-[#B11D1D]"
+                          onClick={() => {
+                            setZoom(1)
+                            setSelectedReporte({ url: canton.reporte_url!, nombre: canton.nombre })
+                          }}
+                        >
+                          <FileText className="h-4 w-4 mr-2" />
+                          Reporte informativo
+                        </Button>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -144,6 +172,67 @@ export function CantonesSection() {
           </div>
         </motion.div>
       </div>
+
+      {selectedReporte && (
+        <div className="fixed inset-0 z-[100] bg-black/80 flex flex-col">
+          <div className="bg-white border-b shadow-lg">
+            <div className="p-4 flex items-center justify-between">
+              <div className="flex-1">
+                <h2 className="text-xl font-semibold">Reporte Informativo - {selectedReporte.nombre}</h2>
+                <p className="text-xs text-muted-foreground hidden sm:block mt-1">Usa la rueda del mouse o pellizca para hacer zoom</p>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="shrink-0 h-10 w-10 rounded-full hover:bg-gray-100"
+                onClick={() => {
+                  setZoom(1)
+                  setSelectedReporte(null)
+                }}
+              >
+                <X className="h-6 w-6" />
+              </Button>
+            </div>
+            <div className="px-4 pb-3 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+              <span className="font-medium text-[#332222]">Controles</span>
+              <div className="flex items-center gap-2">
+                <Button variant="outline" size="icon" onClick={() => handleZoom(-0.1)} aria-label="Alejar" className="h-9 w-9">
+                  <Minus className="h-4 w-4" />
+                </Button>
+                <span className="min-w-[70px] text-center text-[#332222]">{Math.round(zoom * 100)}%</span>
+                <Button variant="outline" size="icon" onClick={() => handleZoom(0.1)} aria-label="Acercar" className="h-9 w-9">
+                  <Plus className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" size="icon" onClick={resetZoom} aria-label="Restablecer" className="h-9 w-9">
+                  <RefreshCw className="h-4 w-4" />
+                </Button>
+              </div>
+              <span className="text-xs">Desplázate con la rueda o pellizca para zoom; arrastra/scroll para mover.</span>
+            </div>
+          </div>
+          <div
+            className="flex-1 overflow-auto bg-gray-100 p-4"
+            onWheel={handleWheel}
+            onDoubleClick={() => setZoom((z) => (z === 1 ? 1.5 : 1))}
+          >
+            <div className="flex items-center justify-center min-h-full">
+              <div
+                className="relative transition-transform duration-200"
+                style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
+              >
+                <Image
+                  src={selectedReporte.url}
+                  alt={`Reporte de ${selectedReporte.nombre}`}
+                  width={2000}
+                  height={2000}
+                  className="w-auto h-auto max-w-full max-h-full shadow-2xl rounded-lg object-contain"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

@@ -75,3 +75,9 @@ INSERT INTO proyectos (codigo, titulo, descripcion, año, estado) VALUES
 ('0099-23', 'Descifrando las fuentes de competitividad territorial y comercial que impactan el desarrollo local', 
  'Una visión desde el comercio de servicios y la competitividad territorial.', 
  2023, 'Activo');
+
+ INSERT INTO equipo (nombre, rol, foto_url, bio, email, orden) VALUES
+('Randall Arce Alvarado', 'Investigador / Docente', 'https://wyrrwfllwtocyrcmllem.supabase.co/storage/v1/object/public/fotos-equipo/randall.png',
+ 'Docente e investigador del proyecto.', NULL, 1),
+('Suyen Alonso Ubieta', 'Investigadora / Docente', 'https://wyrrwfllwtocyrcmllem.supabase.co/storage/v1/object/public/fotos-equipo/suyen.png',
+ 'Docente e investigadora del proyecto.', NULL, 2);

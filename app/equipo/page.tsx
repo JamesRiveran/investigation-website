@@ -5,31 +5,39 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useEffect, useState } from "react"
+import { createClient } from "@/lib/supabase/client"
 
-const teamMembers = [
-  {
-    name: "Randall Arce Alvarado, PhD.",
-    role: "Docente e investigador",
-    profileUrl: "https://www.cinpe.una.ac.cr/index.php/es/programa-docente/profesores/randall-arce",
-    department: "Economía Aplicada",
-    email: "juan.perez@una.ac.cr",
-    phone: "+506 2277-3000",
-    expertise: ["Política Económica", "Desarrollo Regional", "Competitividad"],
-    imageUrl: "/randall.png",
-  },
-  {
-    name: "PhD. Suyen Alonso Ubieta",
-    role: "Docente e investigadora",
-    profileUrl: "https://www.cinpe.una.ac.cr/index.php/es/programa-docente/profesores/suyen-alonso",
-    department: "Economía Aplicada",
-    email: "juan.perez@una.ac.cr",
-    phone: "+506 2277-3000",
-    expertise: ["Política Económica", "Desarrollo Regional", "Competitividad"],
-    imageUrl: "/suyen.png",
-  },
-]
+type TeamMember = {
+  id: string
+  nombre: string
+  rol: string | null
+  foto_url: string | null
+  bio: string | null
+  email: string | null
+  orden: number | null
+}
 
 export default function EquipoPage() {
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      const supabase = createClient()
+      const { data, error } = await supabase
+        .from("equipo")
+        .select("id, nombre, rol, foto_url, bio, email, orden")
+        .order("orden", { ascending: true })
+
+      if (!error && data) {
+        setTeamMembers(data)
+      }
+      setLoading(false)
+    }
+
+    fetchTeam()
+  }, [])
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -56,9 +64,9 @@ export default function EquipoPage() {
         <section className="py-20 px-6 lg:px-12 bg-gradient-to-b from-white to-gray-50">
           <div className="container mx-auto max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {teamMembers.map((member, index) => (
+              {(loading ? Array.from({ length: 2 }) : teamMembers).map((member, index) => (
                 <motion.div
-                  key={member.name}
+                  key={(member as TeamMember)?.id ?? index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -67,27 +75,28 @@ export default function EquipoPage() {
                   <Card className="h-full group hover:shadow-2xl transition-all duration-500 border border-[#E5E5E5] bg-white overflow-hidden">
                     <CardContent className="p-0">
                       <div className="flex flex-col h-full">
-                        {member.imageUrl && (
+                        {member && (member as TeamMember).foto_url ? (
                           <div className="relative h-96 bg-gradient-to-br from-[#852C2C] to-[#5B2D2D] overflow-hidden">
                             <Image
-                              src={member.imageUrl || "/placeholder.svg"}
-                              alt={member.name}
+                              src={(member as TeamMember).foto_url || "/placeholder.svg"}
+                              alt={(member as TeamMember).nombre}
                               fill
                               className="object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#332222]/80 via-transparent to-transparent" />
                           </div>
+                        ) : (
+                          <div className="h-96 bg-gradient-to-br from-[#852C2C]/30 to-[#5B2D2D]/30" />
                         )}
                         <div className="p-6 pb-4">
-                          <h3 className="text-2xl font-bold text-[#332222] mb-2 leading-tight">{member.name}</h3>
-                          <p className="text-[#B11D1D] font-semibold mb-1 text-base">{member.role}</p>
-                          {member.department && <p className="text-sm text-[#5B2D2D]/80 font-medium">{member.department}</p>}
+                          <h3 className="text-2xl font-bold text-[#332222] mb-2 leading-tight">{(member as TeamMember)?.nombre ?? "Cargando..."}</h3>
+                          <p className="text-[#B11D1D] font-semibold mb-1 text-base">{(member as TeamMember)?.rol ?? ""}</p>
                         </div>
 
                         <div className="space-y-3 px-6 pb-4">
-                          {member.email && (
+                          {(member as TeamMember)?.email && (
                             <a
-                              href={`mailto:${member.email}`}
+                              href={`mailto:${(member as TeamMember).email}`}
                               className="flex items-center gap-2 text-sm text-[#332929] hover:text-[#B11D1D] transition-colors group/link"
                             >
                               <svg
@@ -102,54 +111,17 @@ export default function EquipoPage() {
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                               </svg>
-                              <span>{member.email}</span>
+                              <span>{(member as TeamMember).email}</span>
                             </a>
                           )}
-                          {member.phone && (
-                            <div className="flex items-center gap-2 text-sm text-[#332929]">
-
-                              <svg
-                                className="h-4 w-4"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.9 19.9 0 0 1-8.18 0 2 2 0 0 1-2.18-2v-3"></path>
-                                <line x1="22" y1="22" x2="11" y2="11"></line>
-                              </svg>
-                              <span>{member.phone}</span>
-                            </div>
-                          )}
-                          {member.profileUrl && (
-                            <a
-                              href={member.profileUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center text-[#852C2C] hover:text-[#B11D1D] transition-colors font-semibold text-sm"
-                            >
-                              Ver perfil completo →
-                            </a>
+                          {(member as TeamMember)?.bio && (
+                            <p className="text-sm text-[#332929] leading-relaxed">{(member as TeamMember).bio}</p>
                           )}
                         </div>
 
-                        {member.expertise && (
-                          <div className="px-6 pb-6 mt-auto">
-                            <p className="text-xs font-bold text-[#5B2D2D] mb-3 uppercase tracking-wide">Áreas de Experticia</p>
-                            <div className="flex flex-wrap gap-2">
-                              {member.expertise.map((skill) => (
-                                <div
-                                  key={skill}
-                                  className="bg-[#852C2C]/5 text-[#332222] hover:bg-[#B11D1D] hover:text-white transition-all duration-300 text-xs px-3 py-1.5 rounded-full font-medium border border-[#852C2C]/10 hover:border-transparent"
-                                >
-                                  {skill}
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+                        <div className="px-6 pb-6 mt-auto">
+                          <p className="text-xs font-bold text-[#5B2D2D] mb-3 uppercase tracking-wide">Equipo CINPE-UNA</p>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>

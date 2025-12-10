@@ -9,6 +9,7 @@ CREATE TABLE cantones (
   provincia VARCHAR(50) NOT NULL,
   region_socioeconomica VARCHAR(50),
   descripcion TEXT,
+  area VARCHAR(20),
   escudo_url TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
@@ -62,10 +63,10 @@ CREATE INDEX idx_turismo_tipo ON opciones_turisticas(tipo);
 CREATE INDEX idx_equipo_orden ON equipo(orden);
 
 -- INSERTS iniciales: Cantones
-INSERT INTO cantones (codigo, nombre, provincia, region_socioeconomica, descripcion) VALUES
-('216', 'Río Cuarto', 'Alajuela', 'Huetar Norte', 'Cantón de la provincia de Alajuela, conocido por su desarrollo agrícola y turismo rural.'),
-('410', 'Sarapiquí', 'Heredia', 'Huetar Norte', 'Cantón de la provincia de Heredia, destacado por su biodiversidad y ecoturismo.'),
-('702', 'Pococí', 'Limón', 'Huetar Caribe', 'Cantón de la provincia de Limón, importante centro logístico y turístico del Caribe.');
+INSERT INTO cantones (codigo, nombre, provincia, region_socioeconomica, descripcion, area) VALUES
+('216', 'Río Cuarto', 'Alajuela', 'Huetar Norte', 'Cantón de la provincia de Alajuela, conocido por su desarrollo agrícola y turismo rural.', '2144.38 km²'),
+('410', 'Sarapiquí', 'Heredia', 'Huetar Norte', 'Cantón de la provincia de Heredia, destacado por su biodiversidad y ecoturismo.', '2408.76 km²'),
+('702', 'Pococí', 'Limón', 'Huetar Caribe', 'Cantón de la provincia de Limón, importante centro logístico y turístico del Caribe.', '2403.49 km²');
 
 -- INSERTS de ejemplo: Proyectos
 INSERT INTO proyectos (codigo, titulo, descripcion, año, estado) VALUES

@@ -16,6 +16,7 @@ type TeamMember = {
   bio: string | null
   email: string | null
   orden: number | null
+  perfil_url: string | null
 }
 
 export default function EquipoPage() {
@@ -27,7 +28,7 @@ export default function EquipoPage() {
       const supabase = createClient()
       const { data, error } = await supabase
         .from("equipo")
-        .select("id, nombre, rol, foto_url, bio, email, orden")
+        .select("id, nombre, rol, foto_url, bio, email, orden, perfil_url")
         .order("orden", { ascending: true })
 
       if (!error && data) {
@@ -116,6 +117,16 @@ export default function EquipoPage() {
                           )}
                           {(member as TeamMember)?.bio && (
                             <p className="text-sm text-[#332929] leading-relaxed">{(member as TeamMember).bio}</p>
+                          )}
+                          {(member as TeamMember)?.perfil_url && (
+                            <a
+                              href={(member as TeamMember).perfil_url!}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-[#852C2C] hover:text-[#B11D1D] transition-colors font-semibold text-sm mt-3"
+                            >
+                              Ver perfil completo →
+                            </a>
                           )}
                         </div>
 

@@ -90,8 +90,28 @@ function NavigationMenuContent({
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
       className={cn(
-        "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 top-0 left-0 w-full p-2 pr-2.5 md:absolute md:w-auto",
-        "group-data-[viewport=false]/navigation-menu:bg-popover group-data-[viewport=false]/navigation-menu:text-popover-foreground group-data-[viewport=false]/navigation-menu:data-[state=open]:animate-in group-data-[viewport=false]/navigation-menu:data-[state=closed]:animate-out group-data-[viewport=false]/navigation-menu:data-[state=closed]:zoom-out-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:zoom-in-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:fade-in-0 group-data-[viewport=false]/navigation-menu:data-[state=closed]:fade-out-0 group-data-[viewport=false]/navigation-menu:top-full group-data-[viewport=false]/navigation-menu:mt-1.5 group-data-[viewport=false]/navigation-menu:overflow-hidden group-data-[viewport=false]/navigation-menu:rounded-md group-data-[viewport=false]/navigation-menu:border group-data-[viewport=false]/navigation-menu:shadow group-data-[viewport=false]/navigation-menu:duration-200 **:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none",
+        // animaciones (se mantienen)
+        "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out",
+        "data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out",
+        "data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52",
+        "data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52",
+
+        // layout
+        "top-0 left-0 w-full p-2 md:absolute md:w-auto",
+
+        // 🎨 ESTILO OSCURO UNIFICADO
+        "group-data-[viewport=false]/navigation-menu:top-full",
+        "group-data-[viewport=false]/navigation-menu:mt-2",
+        "group-data-[viewport=false]/navigation-menu:overflow-hidden",
+        "group-data-[viewport=false]/navigation-menu:rounded-lg",
+
+        // 👇 AQUÍ ESTÁ LA CLAVE
+        "group-data-[viewport=false]/navigation-menu:bg-[#2D2525]/95",
+        "group-data-[viewport=false]/navigation-menu:border",
+        "group-data-[viewport=false]/navigation-menu:border-white/10",
+        "group-data-[viewport=false]/navigation-menu:shadow-2xl",
+        "group-data-[viewport=false]/navigation-menu:backdrop-blur-md",
+
         className
       )}
       {...props}
@@ -104,15 +124,25 @@ function NavigationMenuViewport({
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
   return (
-    <div
-      className={cn(
-        "absolute top-full left-0 isolate z-50 flex justify-center"
-      )}
-    >
+    <div className="absolute top-full left-0 isolate z-50 flex justify-center">
       <NavigationMenuPrimitive.Viewport
         data-slot="navigation-menu-viewport"
         className={cn(
-          "origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)]",
+          "relative mt-2",
+          "h-[var(--radix-navigation-menu-viewport-height)]",
+          "w-full md:w-[var(--radix-navigation-menu-viewport-width)]",
+
+          // 🎨 ESTILO OSCURO
+          "bg-[#2D2525]/95",
+          "border border-white/10",
+          "rounded-lg",
+          "shadow-2xl",
+          "backdrop-blur-md",
+
+          // animaciones
+          "data-[state=open]:animate-in data-[state=closed]:animate-out",
+          "data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90",
+
           className
         )}
         {...props}

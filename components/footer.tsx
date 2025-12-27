@@ -14,12 +14,18 @@ export function Footer() {
     >
       <div className="container px-6 lg:px-12 py-12 lg:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {/* INFO */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-balance">Centro Internacional de Política Económica</h3>
+            <h3 className="font-semibold text-balance">
+              Centro Internacional de Política Económica
+            </h3>
             <img src="/logo.png" alt="UNA Logo" className="h-25 w-auto rounded-lg" />
-            <p className="text-sm text-muted-foreground leading-relaxed">Universidad Nacional, Costa Rica</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Universidad Nacional, Costa Rica
+            </p>
           </div>
 
+          {/* NAVEGACIÓN */}
           <div className="space-y-4">
             <h4 className="font-semibold">Navegación</h4>
             <ul className="space-y-2 text-sm">
@@ -41,32 +47,38 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* MAC */}
           <div className="space-y-4">
-            <h4 className="font-semibold">Índices</h4>
+            <h4 className="font-semibold">Mecanismo de Análisis Cantonal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#idh" className="text-muted-foreground hover:text-foreground transition-colors">
-                  IDH
+                <a
+                  href="/mac/cantones/rio-cuarto"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Río Cuarto
                 </a>
               </li>
               <li>
-                <a href="#ids" className="text-muted-foreground hover:text-foreground transition-colors">
-                  IDS
+                <a
+                  href="/mac/cantones/sarapiqui"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Sarapiquí
                 </a>
               </li>
               <li>
-                <a href="#ips" className="text-muted-foreground hover:text-foreground transition-colors">
-                  IPS
-                </a>
-              </li>
-              <li>
-                <a href="#icc" className="text-muted-foreground hover:text-foreground transition-colors">
-                  ICC
+                <a
+                  href="/mac/cantones/pococi"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Pococí
                 </a>
               </li>
             </ul>
           </div>
 
+          {/* CONTACTO */}
           <div className="space-y-4">
             <h4 className="font-semibold">Contacto</h4>
             <ul className="space-y-3 text-sm">
@@ -86,6 +98,7 @@ export function Footer() {
           </div>
         </div>
 
+        {/* COPYRIGHT */}
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} James Rivera Núñez. Todos los derechos reservados.</p>
         </div>

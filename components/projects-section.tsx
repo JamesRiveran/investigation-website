@@ -37,7 +37,7 @@ export function ProjectsSection() {
 
     return (
         <section className="py-16 lg:py-24 bg-muted/30">
-            <div className="container px-6 lg:px-12">
+            <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export function ProjectsSection() {
                     </p>
                 </motion.div>
 
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
                     {loading ? (
                         <div>Cargando proyectos...</div>
                     ) : projects.length === 0 ? (

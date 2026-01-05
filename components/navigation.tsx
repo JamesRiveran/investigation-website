@@ -40,7 +40,7 @@ export function Navigation() {
       href: "/propuesta",
     },
     {
-      title: "Mecanismo de Análisis Cantonal",
+      title: "Análisis Cantonal",
       items: [
         { title: "Río Cuarto", href: "/mac/cantones/rio-cuarto" },
         { title: "Sarapiquí", href: "/mac/cantones/sarapiqui" },

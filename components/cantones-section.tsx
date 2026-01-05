@@ -72,7 +72,7 @@ export function CantonesSection() {
 
   return (
     <section className="py-16 lg:py-24 bg-muted/30">
-      <div className="container px-6 lg:px-12">
+      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export function CantonesSection() {
           <p className="text-muted-foreground text-sm">Ley sobre División Territorial Administrativa - N° 4366</p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {loading ? (
             <div className="col-span-full text-center text-muted-foreground">Cargando cantones...</div>
           ) : cantones.length === 0 ? (

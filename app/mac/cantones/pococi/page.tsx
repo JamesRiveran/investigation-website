@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
-import { BarChart3, Users, MapPinned, Info } from "lucide-react"
+import { BarChart3, Users, MapPinned, Info, FileDown } from "lucide-react"
 import { pocociMAC } from "@/src/content/mac/cantones/pococi";
 
 export default function PocociPage() {
@@ -25,18 +25,19 @@ export default function PocociPage() {
                             transition={{ duration: 0.6 }}
                             className="text-center text-white"
                         >
-                            <Badge className="bg-white text-[#B11D1D] font-bold shadow-md mb-4">
-                                Código Postal {pocociMAC.codigoPostal}
-                            </Badge>
-
                             <h1 className="text-4xl md:text-5xl font-bold mb-6">
                                 {pocociMAC.canton}
                             </h1>
 
-                            <p className="text-lg md:text-xl max-w-3xl mx-auto text-white/90">
+                            <p className="text-lg md:text-xl max-w-3xl mx-auto text-white/90 mb-6">
                                 Perfil demográfico y análisis territorial según el
                                 Mecanismo de Análisis Cantonal (MAC)
                             </p>
+
+                            <Badge className="bg-white text-[#B11D1D] font-bold shadow-md mb-4">
+                                Código Postal {pocociMAC.codigoPostal}
+                            </Badge>
+
                         </motion.div>
                     </div>
                 </section>
@@ -111,6 +112,80 @@ export default function PocociPage() {
                                 </Card>
                             </motion.div>
                         ))}
+
+                        {/* DOCUMENTOS INDER */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                        >
+                            <Card className="border border-[#852C2C]/10 hover:shadow-2xl transition-all duration-300 bg-white">
+                                <CardContent className="p-8 lg:p-10 space-y-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="p-3 rounded-lg bg-[#B11D1D]/10">
+                                            <FileDown className="h-6 w-6 text-[#B11D1D]" />
+                                        </div>
+                                        <h2 className="text-2xl font-bold text-[#332222]">
+                                            Documentos INDER
+                                        </h2>
+                                    </div>
+
+                                    <div className="text-[#332929]/80 leading-relaxed">
+                                        <p className="mb-6">
+                                            El Instituto de Desarrollo Rural (INDER) ha elaborado documentos técnicos y de planificación para el cantón de Pococi.
+                                            A continuación, puede descargar los documentos oficiales disponibles:
+                                        </p>
+
+                                        <div className="grid gap-4 md:grid-cols-2">
+                                            <a
+                                                href="https://wyrrwfllwtocyrcmllem.supabase.co/storage/v1/object/public/documentos-proyectos/Pococi/PDRT-Pococi.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-3 p-4 rounded-lg border border-[#852C2C]/20 hover:border-[#B11D1D] hover:bg-[#B11D1D]/5 transition-all duration-300 group"
+                                            >
+                                                <FileDown className="h-5 w-5 text-[#B11D1D] group-hover:scale-110 transition-transform" />
+                                                <span className="text-sm font-medium text-[#332222] group-hover:text-[#B11D1D]">Plan de Desarrollo Rural Territorial</span>
+                                            </a>
+
+                                            <a
+                                                href="https://wyrrwfllwtocyrcmllem.supabase.co/storage/v1/object/public/documentos-proyectos/Pococi/Caracterizacion-territorio-Pococi.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-3 p-4 rounded-lg border border-[#852C2C]/20 hover:border-[#B11D1D] hover:bg-[#B11D1D]/5 transition-all duration-300 group"
+                                            >
+                                                <FileDown className="h-5 w-5 text-[#B11D1D] group-hover:scale-110 transition-transform" />
+                                                <span className="text-sm font-medium text-[#332222] group-hover:text-[#B11D1D]">Caracterización del Territorio</span>
+                                            </a>
+
+                                            <a
+                                                href="https://wyrrwfllwtocyrcmllem.supabase.co/storage/v1/object/public/documentos-proyectos/Pococi/Boletin-Pococi.pdf"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-3 p-4 rounded-lg border border-[#852C2C]/20 hover:border-[#B11D1D] hover:bg-[#B11D1D]/5 transition-all duration-300 group"
+                                            >
+                                                <FileDown className="h-5 w-5 text-[#B11D1D] group-hover:scale-110 transition-transform" />
+                                                <span className="text-sm font-medium text-[#332222] group-hover:text-[#B11D1D]">Boletín Informativo</span>
+                                            </a>
+
+                                            <a
+                                                href="https://wyrrwfllwtocyrcmllem.supabase.co/storage/v1/object/public/documentos-proyectos/Pococi/mapa-territorio-pococi.jpg"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-3 p-4 rounded-lg border border-[#852C2C]/20 hover:border-[#B11D1D] hover:bg-[#B11D1D]/5 transition-all duration-300 group"
+                                            >
+                                                <FileDown className="h-5 w-5 text-[#B11D1D] group-hover:scale-110 transition-transform" />
+                                                <span className="text-sm font-medium text-[#332222] group-hover:text-[#B11D1D]">Mapa Territorial</span>
+                                            </a>
+                                        </div>
+
+                                        <p className="mt-6 text-xs text-[#332929]/60">
+                                            Los documentos se abrirán en una nueva pestaña para su descarga inmediata.
+                                        </p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
 
                         {/* NOTAS */}
                         <Card className="border border-[#852C2C]/10 bg-gradient-to-br from-[#852C2C]/5 to-[#B11D1D]/5">

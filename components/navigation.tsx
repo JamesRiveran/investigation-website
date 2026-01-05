@@ -48,6 +48,12 @@ export function Navigation() {
       ],
     },
     {
+      title: "Índices",
+      items: [
+        { title: "Índice de Competitividad Cantonal (ICC) - UCR", href: "/indices/icc" },
+      ],
+    },
+    {
       title: "Opciones Turísticas",
       href: "/#turismo",
     },
@@ -156,9 +162,8 @@ export function Navigation() {
                         >
                           {item.title}
                           <ChevronDown
-                            className={`h-5 w-5 transition-transform duration-300 ${
-                              expandedItem === item.title ? "rotate-180" : ""
-                            }`}
+                            className={`h-5 w-5 transition-transform duration-300 ${expandedItem === item.title ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
 
@@ -168,13 +173,11 @@ export function Navigation() {
                               <Link
                                 key={subItem.title}
                                 href={subItem.href}
-                                className={`block px-5 py-3 text-sm text-[#E5E5E5] hover:bg-[#5C2E2E] hover:text-white transition-colors ${
-                                  idx === 0 ? "rounded-t-lg" : ""
-                                } ${
-                                  idx === item.items.length - 1
+                                className={`block px-5 py-3 text-sm text-[#E5E5E5] hover:bg-[#5C2E2E] hover:text-white transition-colors ${idx === 0 ? "rounded-t-lg" : ""
+                                  } ${idx === item.items.length - 1
                                     ? "rounded-b-lg"
                                     : ""
-                                }`}
+                                  }`}
                                 onClick={() => setIsOpen(false)}
                               >
                                 {subItem.title}

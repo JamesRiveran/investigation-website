@@ -44,12 +44,13 @@ export function Footer() {
                   Propuesta de proyectos
                 </a>
               </li>
+
             </ul>
           </div>
 
           {/* MAC */}
           <div className="space-y-4">
-            <h4 className="font-semibold">Mecanismo de Análisis Cantonal</h4>
+            <h4 className="font-semibold">Análisis Cantonal</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <a

@@ -49,7 +49,7 @@ export function IndicesSection() {
 
     return (
         <section id="indices" className="py-16 lg:py-24">
-            <div className="container px-6 lg:px-12">
+            <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export function IndicesSection() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
-                    className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+                    className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto"
                 >
                     {indices.map((index, idx) => (
                         <motion.div key={idx} variants={itemVariants}>

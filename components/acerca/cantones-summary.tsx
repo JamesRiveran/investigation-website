@@ -74,27 +74,6 @@ export function CantonesSummary() {
                     ))}
                 </div>
 
-                <Card className="border-2 border-[#852C2C]/15 bg-gradient-to-br from-[#852C2C]/5 to-[#B11D1D]/5">
-                    <CardContent className="p-8 lg:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                        <div className="space-y-2">
-                            <p className="text-sm font-semibold text-[#5B2D2D] uppercase tracking-wide">Índice de Competitividad Cantonal</p>
-                            <h3 className="text-2xl font-bold text-[#332222]">Comparativa ICC (UCR) 2011-2023</h3>
-                            <p className="text-[#332929]/80 max-w-3xl">
-                                Revisa el análisis de los 7 pilares estratégicos y 38 indicadores para Pococí, Río Cuarto y Sarapiquí.
-                            </p>
-                        </div>
-                        <div className="flex gap-3">
-                            <Link href="/indices/icc">
-                                <Button className="bg-[#B11D1D] hover:bg-[#8f1616] text-white">Ver detalle ICC</Button>
-                            </Link>
-                            <Link href="/">
-                                <Button variant="outline" className="text-[#B11D1D] border-[#B11D1D]/40 hover:bg-[#B11D1D]/5">
-                                    Volver a inicio
-                                </Button>
-                            </Link>
-                        </div>
-                    </CardContent>
-                </Card>
             </div>
         </section>
     )

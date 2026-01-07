@@ -22,7 +22,7 @@ export function RepositoryHero({ title, badgeLabel, summary, ctaHref, ctaLabel }
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">{title}</h1>
                 <p className="text-lg md:text-xl max-w-3xl text-white/85">{summary}</p>
                 <div>
-                    <Button asChild variant="outline" size="lg" className="gap-2 border-white/60 text-white hover:bg-white/10">
+                    <Button asChild size="lg" className="gap-2 bg-white text-[#B11D1D] hover:bg-white/90 font-semibold shadow-lg">
                         <a href={ctaHref}>{ctaLabel}</a>
                     </Button>
                 </div>

@@ -13,7 +13,7 @@ export function HeroSection() {
       className="relative overflow-hidden bg-gradient-to-br from-[#852C2C] via-[#5B2D2D] to-[#B11D1D] py-20 lg:py-32"
     >
       <div className="absolute inset-0 bg-grid-white/10" />
-      <div className="container relative px-6 lg:px-12">
+      <div className="container mx-auto px-6 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}

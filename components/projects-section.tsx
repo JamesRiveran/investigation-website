@@ -38,7 +38,7 @@ export function ProjectsSection() {
     }
 
     return (
-        <section className="py-16 lg:py-24 bg-muted/30">
+        <section className="py-16 lg:py-24 bg-red-50">
             <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -133,7 +133,7 @@ export function ProjectsSection() {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="gap-2 border-primary/30 text-primary hover:bg-primary/10"
+                                className="gap-2 border-primary text-primary hover:bg-primary/30 hover:text-primary"
                             >
                                 Conoce más
                                 <ArrowRight className="h-4 w-4" />

@@ -32,30 +32,8 @@ export function Navigation() {
       href: "/",
     },
     {
-      title: "Equipo de trabajo",
-      href: "/equipo",
-    },
-    {
-      title: "Propuesta de proyectos",
-      href: "/propuesta",
-    },
-    {
-      title: "Análisis Cantonal",
-      items: [
-        { title: "Río Cuarto", href: "/mac/cantones/rio-cuarto" },
-        { title: "Sarapiquí", href: "/mac/cantones/sarapiqui" },
-        { title: "Pococí", href: "/mac/cantones/pococi" },
-      ],
-    },
-    {
-      title: "Índices",
-      items: [
-        { title: "Índice de Competitividad Cantonal (ICC) - UCR", href: "/indices/icc" },
-      ],
-    },
-    {
-      title: "Opciones Turísticas",
-      href: "/#turismo",
+      title: "Acerca del proyecto",
+      href: "/acerca",
     },
   ]
 

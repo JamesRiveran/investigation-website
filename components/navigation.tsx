@@ -26,36 +26,28 @@ export function Navigation() {
 
   if (!mounted) return null
 
-  const navItems = [
+  type NavItem = {
+    title: string
+    href: string
+    items?: { title: string; href: string }[]
+  }
+
+  const navItems: NavItem[] = [
     {
       title: "Inicio",
       href: "/",
     },
     {
-      title: "Equipo de trabajo",
-      href: "/equipo",
+      title: "Acerca del proyecto",
+      href: "/acerca",
     },
     {
-      title: "Propuesta de proyectos",
-      href: "/propuesta",
+      title: "Investigación",
+      href: "/investigacion",
     },
     {
-      title: "Análisis Cantonal",
-      items: [
-        { title: "Río Cuarto", href: "/mac/cantones/rio-cuarto" },
-        { title: "Sarapiquí", href: "/mac/cantones/sarapiqui" },
-        { title: "Pococí", href: "/mac/cantones/pococi" },
-      ],
-    },
-    {
-      title: "Índices",
-      items: [
-        { title: "Índice de Competitividad Cantonal (ICC) - UCR", href: "/indices/icc" },
-      ],
-    },
-    {
-      title: "Opciones Turísticas",
-      href: "/#turismo",
+      title: "Repositorio Digital",
+      href: "/repositorio-digital",
     },
   ]
 
@@ -169,15 +161,12 @@ export function Navigation() {
 
                         {expandedItem === item.title && (
                           <div className="bg-[#2A2222] rounded-lg mx-2 my-1 space-y-0 animate-in fade-in-0 slide-in-from-top-2">
-                            {item.items.map((subItem, idx) => (
+                            {(item.items ?? []).map((subItem, idx, arr) => (
                               <Link
                                 key={subItem.title}
                                 href={subItem.href}
-                                className={`block px-5 py-3 text-sm text-[#E5E5E5] hover:bg-[#5C2E2E] hover:text-white transition-colors ${idx === 0 ? "rounded-t-lg" : ""
-                                  } ${idx === item.items.length - 1
-                                    ? "rounded-b-lg"
-                                    : ""
-                                  }`}
+                                className={`block px-5 py-3 text-sm text-[#E5E5E5] hover:bg-[#5C2E2E] hover:text-white transition-colors ${idx === 0 ? "rounded-t-lg" : ""}
+                                  ${idx === arr.length - 1 ? "rounded-b-lg" : ""}`}
                                 onClick={() => setIsOpen(false)}
                               >
                                 {subItem.title}

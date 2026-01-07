@@ -12,8 +12,8 @@ export function Footer() {
       transition={{ duration: 0.5 }}
       className="border-t bg-muted/30"
     >
-      <div className="container px-6 lg:px-12 py-12 lg:py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container mx-auto px-6 lg:px-12 py-12 lg:py-16">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5 justify-center">
           {/* INFO */}
           <div className="space-y-4">
             <h3 className="font-semibold text-balance">
@@ -25,13 +25,13 @@ export function Footer() {
             </p>
           </div>
 
-          {/* NAVEGACIÓN */}
+          {/* ACERCA DEL PROYECTO */}
           <div className="space-y-4">
-            <h4 className="font-semibold">Navegación</h4>
+            <h4 className="font-semibold">Acerca del Proyecto</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Inicio
+                <a href="/acerca" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Acerca del proyecto
                 </a>
               </li>
               <li>
@@ -44,36 +44,58 @@ export function Footer() {
                   Propuesta de proyectos
                 </a>
               </li>
-
             </ul>
           </div>
 
-          {/* MAC */}
+          {/* INVESTIGACIÓN */}
           <div className="space-y-4">
-            <h4 className="font-semibold">Análisis Cantonal</h4>
+            <h4 className="font-semibold">Investigación</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="/mac/cantones/rio-cuarto"
+                  href="/investigacion"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Río Cuarto
+                  Investigación General
                 </a>
               </li>
               <li>
                 <a
-                  href="/mac/cantones/sarapiqui"
+                  href="/mac/cantones/perfil"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Sarapiquí
+                  Módulo I - Perfil
                 </a>
               </li>
               <li>
                 <a
-                  href="/mac/cantones/pococi"
+                  href="/indices/icc"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Pococí
+                  Módulo II - ICC
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/indices/icn"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Módulo III - ICN
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* REPOSITORIO DIGITAL */}
+          <div className="space-y-4">
+            <h4 className="font-semibold">Repositorio Digital</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="/repositorio-digital"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Carpetas
                 </a>
               </li>
             </ul>

@@ -23,8 +23,7 @@ export function DocumentCard({ file }: { file: RepoFile }) {
             </CardHeader>
             <CardContent className="space-y-3">
                 <p className="text-xs text-[#5B2D2D]/80">
-                    {size ? `Tamaño: ${size}` : "Tamaño no disponible"}
-                    {updated ? ` · Actualizado ${updated}` : ""}
+                    {updated ? `Actualizado ${updated}` : "Descarga disponible"}
                 </p>
                 <Button asChild variant="outline" className="w-full gap-2 border-[#B11D1D]/30 text-[#B11D1D] hover:bg-[#B11D1D]/10">
                     <a href={href} target="_blank" rel="noopener noreferrer">

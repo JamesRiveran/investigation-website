@@ -15,10 +15,9 @@ export function FileRow({ file }: { file: RepoFile }) {
                 </span>
                 <div className="space-y-1 min-w-0">
                     <p className="text-sm font-semibold text-[#332222] line-clamp-2">{file.name}</p>
-                    <p className="text-xs text-[#5B2D2D]/70 truncate">
-                        {size ? `${size}` : "Tamaño desconocido"}
-                        {updated ? ` · Actualizado ${updated}` : ""}
-                    </p>
+                    {updated && (
+                        <p className="text-xs text-[#5B2D2D]/70 truncate">Actualizado {updated}</p>
+                    )}
                 </div>
             </div>
 

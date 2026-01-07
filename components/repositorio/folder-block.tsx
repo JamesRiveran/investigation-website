@@ -4,6 +4,12 @@ import { FileRow } from "./file-row"
 import { CollapsibleFolder } from "./collapsible-folder"
 import { RepoFolder } from "./types"
 
+function getFileCount(folder: RepoFolder): number {
+    const own = folder.files.length
+    const nested = folder.folders.reduce((sum, child) => sum + getFileCount(child), 0)
+    return own + nested
+}
+
 export function FolderBlock({ folder }: { folder: RepoFolder }) {
     return (
         <Card className="border border-[#852C2C]/15 bg-white shadow-sm hover:shadow-lg transition-all duration-300">
@@ -14,7 +20,7 @@ export function FolderBlock({ folder }: { folder: RepoFolder }) {
                     </span>
                     <div>
                         <CardTitle className="text-xl text-[#332222]">{folder.name}</CardTitle>
-                        <p className="text-sm text-[#5B2D2D]/80">{folder.files.length} archivos · {folder.folders.length} carpetas</p>
+                        <p className="text-sm text-[#5B2D2D]/80">{getFileCount(folder)} archivos · {folder.folders.length} carpetas</p>
                     </div>
                 </div>
             </CardHeader>

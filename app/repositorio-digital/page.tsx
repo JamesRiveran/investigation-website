@@ -29,17 +29,23 @@ function buildRepositoryStructure(): RepoFolder[] {
         })
     }
 
-    return Object.entries(structure).map(([canton, categories]) => ({
-        name: canton,
-        path: canton,
-        files: [],
-        folders: Object.entries(categories).map(([category, files]) => ({
-            name: category,
-            path: `${canton}/${category}`,
-            files,
-            folders: [],
-        })),
-    }))
+    const compare = (a: string, b: string) => a.localeCompare(b, 'es', { sensitivity: 'base' })
+
+    return Object.entries(structure)
+        .sort(([a], [b]) => compare(a, b))
+        .map(([canton, categories]) => ({
+            name: canton,
+            path: canton,
+            files: [],
+            folders: Object.entries(categories)
+                .sort(([a], [b]) => compare(a, b))
+                .map(([category, files]) => ({
+                    name: category,
+                    path: `${canton}/${category}`,
+                    files: [...files].sort((a, b) => compare(a.name, b.name)),
+                    folders: [],
+                })),
+        }))
 }
 
 export default function RepositorioDigitalPage() {

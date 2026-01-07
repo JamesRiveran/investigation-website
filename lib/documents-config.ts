@@ -256,4 +256,105 @@ export const DOCUMENTS: DocumentConfig[] = [
         name: 'Organigrama MRC V3.pdf',
         path: 'RioCuarto/Organigrama/Organigrama MRC V3.pdf',
     },
+    // Sarapiqui - Municipales 2024
+    {
+        canton: 'Sarapiqui',
+        category: 'Municipales 2024',
+        name: 'Sarapiqui.pdf',
+        path: 'Sarapiqui/Municipales 2024/Sarapiqui.pdf',
+    },
+    // Sarapiqui - Centro de documentacion
+    {
+        canton: 'Sarapiqui',
+        category: 'Centro de documentacion',
+        name: 'cne_plan_contingencia_sarapiqui_2019.pdf',
+        path: 'Sarapiqui/Centro de documentacion/cne_plan_contingencia_sarapiqui_2019.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'Centro de documentacion',
+        name: 'PEM-Municipalidad-Sarapiqui.pdf',
+        path: 'Sarapiqui/Centro de documentacion/PEM-Municipalidad-Sarapiqui.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'Centro de documentacion',
+        name: 'Plan-de-Gobierno-Municipalidad-de-Sarapiqui.pdf',
+        path: 'Sarapiqui/Centro de documentacion/Plan-de-Gobierno-Municipalidad-de-Sarapiqui.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'Centro de documentacion',
+        name: 'Plan-emergencia-CME-Sarapiqu-2019.pdf',
+        path: 'Sarapiqui/Centro de documentacion/Plan-emergencia-CME-Sarapiqu-2019.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'Centro de documentacion',
+        name: 'Sarapiqui_Estrategia_GE_vfinal.pdf',
+        path: 'Sarapiqui/Centro de documentacion/Sarapiqui_Estrategia_GE_vfinal.pdf',
+    },
+    // Sarapiqui - ICN - CPC
+    {
+        canton: 'Sarapiqui',
+        category: 'ICN - CPC',
+        name: 'ICN - 2021.pdf',
+        path: 'Sarapiqui/ICN - CPC/ICN - 2021.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'ICN - CPC',
+        name: 'ICN - 2022.pdf',
+        path: 'Sarapiqui/ICN - CPC/ICN - 2022.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'ICN - CPC',
+        name: 'ICN - 2023.pdf',
+        path: 'Sarapiqui/ICN - CPC/ICN - 2023.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'ICN - CPC',
+        name: 'ICN - 2024.pdf',
+        path: 'Sarapiqui/ICN - CPC/ICN - 2024.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'ICN - CPC',
+        name: 'ICN - 2025.pdf',
+        path: 'Sarapiqui/ICN - CPC/ICN - 2025.pdf',
+    },
+    // Sarapiqui - INDER
+    {
+        canton: 'Sarapiqui',
+        category: 'INDER',
+        name: 'Boletin-Sarapiqui.pdf',
+        path: 'Sarapiqui/INDER/Boletin-Sarapiqui.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'INDER',
+        name: 'Caracterizacion-Territorio-Sarapiqui.pdf',
+        path: 'Sarapiqui/INDER/Caracterizacion-Territorio-Sarapiqui.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'INDER',
+        name: 'PDRTSarapiqui_actualizado.pdf',
+        path: 'Sarapiqui/INDER/PDRTSarapiqui_actualizado.pdf',
+    },
+    {
+        canton: 'Sarapiqui',
+        category: 'INDER',
+        name: 'Ubicacion del Territorio SarapiquI Heredia SarapiquI Alajuela.png',
+        path: 'Sarapiqui/INDER/Ubicacion del Territorio SarapiquI Heredia SarapiquI Alajuela.png',
+    },
+    // Sarapiqui - Organigrama
+    {
+        canton: 'Sarapiqui',
+        category: 'Organigrama',
+        name: 'ORGANIGRAMA.png',
+        path: 'Sarapiqui/Organigrama/ORGANIGRAMA.png',
+    },
 ]

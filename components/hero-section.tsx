@@ -30,19 +30,20 @@ export function HeroSection() {
             <p className="text-lg text-primary-foreground/90 leading-relaxed text-pretty">
               Universidad Nacional, Costa Rica
             </p>
-            <p className="text-base text-primary-foreground/80 leading-relaxed">
-              Acceso transparente a información relevante de diferentes cantones involucrados en investigaciones. Datos
-              estadísticos, índices de desarrollo y herramientas para estudios de carácter económico, social, cultural y
-              político.
-            </p>
+            <div className="space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-wide text-white/80">Acerca del proyecto</p>
+              <p className="text-base text-primary-foreground/80 leading-relaxed">
+                Conoce los objetivos, alcances y el equipo que impulsa los proyectos de competitividad territorial en las regiones Huetar Norte y Huetar Caribe.
+              </p>
+            </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-              <Link href="/propuesta">
+              <Link href="/acerca">
                 <Button
                   size="lg"
                   className="gap-2 bg-gradient-to-br from-[#B11D1D] to-[#852C2C] text-white hover:from-[#C42B2B] hover:to-[#A03030] border border-white/25 backdrop-blur font-semibold"
                 >
                   <FileText className="h-4 w-4" />
-                  Propuesta de proyectos
+                  Acerca del proyecto
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>

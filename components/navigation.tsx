@@ -35,6 +35,10 @@ export function Navigation() {
       title: "Acerca del proyecto",
       href: "/acerca",
     },
+    {
+      title: "Repositorio Digital",
+      href: "/repositorio-digital",
+    },
   ]
 
   return (

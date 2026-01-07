@@ -1,9 +1,11 @@
 "use client"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, TrendingUp, Building2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, BookOpen, TrendingUp, Building2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { createClient } from "@/lib/supabase/client"
 import { Proyecto } from "@/types/database.types"
 
@@ -43,18 +45,17 @@ export function ProjectsSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="mb-12 text-center"
+                    className="mb-10 text-center space-y-4"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm text-primary mb-4">
-                        <Building2 className="h-4 w-4" />
-                        Núcleo de Globalización y Comercio
-                    </div>
-                    <h2 className="text-3xl font-bold tracking-tight text-secondary sm:text-4xl mb-3 text-balance">
-                        Proyectos de Investigación
+                    <h2 className="text-3xl font-bold tracking-tight text-secondary sm:text-4xl text-balance">
+                        Acerca del proyecto
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
-                        Iniciativas enfocadas en el desarrollo económico y competitividad territorial en Costa Rica
-                    </p>
+                    <div className="flex justify-center">
+                        <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm text-primary">
+                            <Building2 className="h-4 w-4" />
+                            Propuestas
+                        </div>
+                    </div>
                 </motion.div>
 
                 <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
@@ -116,6 +117,30 @@ export function ProjectsSection() {
                         })
                     )}
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="mt-10 text-center space-y-4"
+                >
+                    <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
+                        Conoce los objetivos, alcances y el equipo que impulsa los proyectos de competitividad territorial en las regiones Huetar Norte y Huetar Caribe.
+                    </p>
+                    <div className="flex justify-center">
+                        <Link href="/acerca">
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="gap-2 border-primary/30 text-primary hover:bg-primary/10"
+                            >
+                                Conoce más
+                                <ArrowRight className="h-4 w-4" />
+                            </Button>
+                        </Link>
+                    </div>
+                </motion.div>
             </div>
         </section>
     )

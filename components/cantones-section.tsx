@@ -2,13 +2,20 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { MapPin, FileText, X, Plus, Minus, RefreshCw } from "lucide-react"
+import { MapPin, ExternalLink, X, Plus, Minus, RefreshCw } from "lucide-react"
 import { motion } from "framer-motion"
 import { useEffect, useState, type WheelEvent } from "react"
 import { createClient } from "@/lib/supabase/client"
 import { Canton } from "@/types/database.types"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+
+// Mapeo de cantones con sus URLs de Google Maps
+const CANTON_MAP_URLS: Record<string, string> = {
+  "Limón, Pococí": "https://maps.app.goo.gl/JJkXbbbjWow3ig7S6",
+  "Heredia, Sarapiquí": "https://maps.app.goo.gl/BikkPNh1TNTS6HV77",
+  "Alajuela, Río Cuarto": "https://maps.app.goo.gl/2T4V4J8UZY96wqA19",
+}
 
 export function CantonesSection() {
   const [cantones, setCantones] = useState<Canton[]>([])
@@ -130,19 +137,22 @@ export function CantonesSection() {
                         {canton.descripcion}
                       </p>
                     )}
-                    {canton.reporte_url && (
+                    {CANTON_MAP_URLS[`${canton.provincia}, ${canton.nombre}`] && (
                       <div className="pt-3 border-t">
                         <Button
                           variant="outline"
                           size="sm"
                           className="w-full text-[#852C2C] border-[#852C2C]/20 hover:bg-[#852C2C]/10 hover:text-[#B11D1D]"
-                          onClick={() => {
-                            setZoom(1)
-                            setSelectedReporte({ url: canton.reporte_url!, nombre: canton.nombre })
-                          }}
+                          asChild
                         >
-                          <FileText className="h-4 w-4 mr-2" />
-                          Reporte informativo
+                          <a
+                            href={CANTON_MAP_URLS[`${canton.provincia}, ${canton.nombre}`]}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <MapPin className="h-4 w-4 mr-2" />
+                            Ver en el mapa
+                          </a>
                         </Button>
                       </div>
                     )}

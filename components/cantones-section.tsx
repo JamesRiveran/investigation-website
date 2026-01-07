@@ -153,24 +153,7 @@ export function CantonesSection() {
           )}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 mx-auto max-w-md"
-        >
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50">
-            <Image
-              src="/cantones.png"
-              alt="Mapa de cantones - Río Cuarto, Sarapiquí y Pococí"
-              width={200}
-              height={100}
-              className="w-full h-auto object-cover"
-              priority
-            />
-          </div>
-        </motion.div>
+        {/* Mapa removido */}
       </div>
 
       {selectedReporte && (
@@ -215,21 +198,6 @@ export function CantonesSection() {
             onWheel={handleWheel}
             onDoubleClick={() => setZoom((z) => (z === 1 ? 1.5 : 1))}
           >
-            <div className="flex items-center justify-center min-h-full">
-              <div
-                className="relative transition-transform duration-200"
-                style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
-              >
-                <Image
-                  src={selectedReporte.url}
-                  alt={`Reporte de ${selectedReporte.nombre}`}
-                  width={2000}
-                  height={2000}
-                  className="w-auto h-auto max-w-full max-h-full shadow-2xl rounded-lg object-contain"
-                  priority
-                />
-              </div>
-            </div>
           </div>
         </div>
       )}
